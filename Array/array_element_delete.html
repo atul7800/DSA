@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array traversing</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let arrayOne = [11, 12, 13, 99, 45, 65, 32, 7];
+    let removalIndex = 3; //delete the value of index 3
+    console.log(arrayOne);
+    for(let i=removalIndex; i<arrayOne.length-1;i++){
+        arrayOne[i] = arrayOne[i+1];
+    }
+
+    //Reduce the length by 1 to remove the last value which is a duplicate value
+    arrayOne.length = arrayOne.length-1; 
+    console.log(arrayOne)
+
+    // Removing using inbuilt method 
+    let arrayTwo = [11, 12, 13, 99, 45, 65, 32, 7];
+    arrayTwo.splice(removalIndex, 1); //remove 1 element from index 3
+    console.log(arrayTwo)
+
+    //add 111 at index 1 and remove 1 value
+    arrayTwo.splice(1, 1, 111)
+    console.log(arrayTwo)
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array element search</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let array1 = [111, 222, 333, 444, 555, 666, 777];
+    let searchValue = 333;
+
+    // Method 1
+    for(let i=0; i<array1.length; i++)
+    {
+        if(array1[i] == searchValue){
+            //console.log(`${searchValue} found at index ${i}`);
+        }
+    }
+
+    // Method 2 : using built-in function
+    let array2 = [111, 222, 333, 444, 555, 666, 777];
+    if(array2.indexOf(searchValue) != -1){ //will return -1 if element is not present
+        console.log(`${searchValue} found at index ${array2.indexOf(searchValue)}`);
+    } else{
+        console.log(`${searchValue} not found`);
+    }
+    
+</script>
+</html>
