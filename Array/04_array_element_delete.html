@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array traversing</title>
+  </head>
+  <body></body>
+  <script>
+    let arrayOne = [11, 12, 13, 99, 45, 65, 32, 7];
+    let removalIndex = 3; //delete the value of index 3
+    console.log(arrayOne);
+
+    //move all the elements from index no 3 till end one index forward
+    for (let i = removalIndex; i < arrayOne.length - 1; i++) {
+      arrayOne[i] = arrayOne[i + 1];
+    }
+
+    //now reduce the length by 1 to remove the last value which is a duplicate value
+    arrayOne.length = arrayOne.length - 1;
+    console.log(arrayOne);
+
+    //+++++Removing using inbuilt methods and operator+++++//
+    // Method 1
+    let arrayTwo = [11, 12, 13, 99, 45, 65, 32, 7, 23, 77, 5, 8];
+    arrayTwo.splice(removalIndex, 1); //remove 1 element from index 3
+    console.log(arrayTwo);
+
+    //remove 2 values starting from index 3 and insert 111 at index 3
+    arrayTwo.splice(3, 2, 111);
+    console.log(arrayTwo);
+
+    // Method 2 | filter() removes the last element and returns it.
+    // Filetr() : filter method filter elements from an array based on specified criteria and returns an object containing the filtered elements. It takes a callback method as parameter to filter the elements. Keep in mind that it doesn't alter the original array.
+    const newArray = arrayTwo.filter((value) => {
+      return value > 10;
+    });
+    console.log("filter() : " + newArray);
+    console.log("Type of newArray : " + typeof newArray);
+    console.log(arrayTwo);
+
+    // Method 3 | pop() removes the last element and returns it.
+    const removedElement2 = arrayTwo.pop();
+    console.log("pop() : " + removedElement2);
+    console.log(arrayTwo);
+
+    // Method 4 | shift() removes the first element and returns it.
+    const removedElement3 = arrayTwo.shift();
+    console.log("shift() : " + removedElement3);
+    console.log(arrayTwo);
+
+    // Operator 1 | delete operator removes the element at index 1 element and returns true if removed successfully otherwise false.
+    const removedElement4 = delete arrayTwo[1];
+    console.log("delete operator : " + removedElement4);
+    console.log(arrayTwo);
+  </script>
+</html>
