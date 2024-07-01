@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let s = "racecar";
+    let t = "carrace0";
+    let counter = 0;
+    let finalResult = false;
+
+    function isAnagram(s, t) {
+      let resultS = {};
+      let resultT = {};
+      if (s.length == t.length) {
+        for (let i = 0; i < s.length; i++) {
+          //string s
+          let chS = s.charAt(i);
+          if (!resultS[chS]) {
+            resultS[chS] = 1;
+          } else {
+            resultS[chS] += 1;
+          }
+
+          //string t
+          let chT = t.charAt(i);
+          if (!resultT[chT]) {
+            resultT[chT] = 1;
+          } else {
+            resultT[chT] += 1;
+          }
+        }
+      }
+      const keysS = Object.keys(resultS);
+      const keysT = Object.keys(resultT);
+
+      if (Object.keys(resultS).length == Object.keys(resultT).length) {
+        for (let i = 0; i <= keysS.length; i++) {
+          if (
+            keysT.indexOf(keysS[i]) &&
+            resultS[keysS[i]] == resultT[keysS[i]]
+          ) {
+            counter = counter + 1;
+            console.log("Counter = " + counter);
+          }
+        }
+
+        if (counter == keysS.length && counter == keysT.length) {
+          finalResult = true;
+          console.log(finalResult);
+        }
+      }
+
+      return finalResult;
+    }
+
+    //isAnagram(s, t);
+
+    console.log("Result : " + isAnagram(s, t));
+  </script>
+</html>
