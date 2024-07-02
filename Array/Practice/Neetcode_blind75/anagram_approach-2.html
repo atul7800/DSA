@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let s = "carrace";
+    let t = "racecaar";
+    let counter = 0;
+    let finalResult = false;
+
+    function isAnagram(s, t) {
+      let resultS = {};
+      let resultT = {};
+      if (s.length == t.length) {
+        //sort the strings so that we can if they are anagram easily
+        s = s.split("").sort().join("");
+        t = t.split("").sort().join("");
+
+        for (let i = 0; i < s.length; i++) {
+          //string s
+          if (s.charAt(i) === t.charAt(i)) {
+            counter = counter + 1;
+          } else {
+            finalResult = false;
+            return finalResult;
+          }
+        }
+
+        if (counter == s.length && counter == t.length) {
+          finalResult = true;
+        } else {
+          finalResult = false;
+          return finalResult;
+        }
+
+        return finalResult;
+      } else {
+        return finalResult;
+      }
+    }
+
+    //isAnagram(s, t);
+
+    console.log("Result : " + isAnagram(s, t));
+  </script>
+</html>

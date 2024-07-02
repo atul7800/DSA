@@ -7,8 +7,8 @@
   </head>
   <body></body>
   <script>
-    let s = "racecar";
-    let t = "carrace0";
+    let s = "xx";
+    let t = "bb";
     let counter = 0;
     let finalResult = false;
 
@@ -33,28 +33,33 @@
             resultT[chT] += 1;
           }
         }
-      }
-      const keysS = Object.keys(resultS);
-      const keysT = Object.keys(resultT);
 
-      if (Object.keys(resultS).length == Object.keys(resultT).length) {
-        for (let i = 0; i <= keysS.length; i++) {
-          if (
-            keysT.indexOf(keysS[i]) &&
-            resultS[keysS[i]] == resultT[keysS[i]]
-          ) {
-            counter = counter + 1;
-            console.log("Counter = " + counter);
+        const keysS = Object.keys(resultS);
+        const keysT = Object.keys(resultT);
+
+        if (Object.keys(resultS).length == Object.keys(resultT).length) {
+          for (let i = 0; i <= keysS.length; i++) {
+            if (
+              keysT.indexOf(keysS[i]) &&
+              resultS[keysS[i]] == resultT[keysS[i]]
+            ) {
+              counter = counter + 1;
+              console.log("Counter = " + counter);
+            }
           }
-        }
 
-        if (counter == keysS.length && counter == keysT.length) {
-          finalResult = true;
-          console.log(finalResult);
+          if (counter == keysS.length && counter == keysT.length) {
+            finalResult = true;
+          }
+
+          return finalResult;
+        } else {
+          finalResult = false;
+          return;
         }
+      } else {
+        return finalResult;
       }
-
-      return finalResult;
     }
 
     //isAnagram(s, t);
